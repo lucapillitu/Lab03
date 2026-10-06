@@ -17,11 +17,13 @@ def main():
 
     while True:
         scelta = menu()
-
+#
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
-            # TODO: Aggiorna responsabile nel sistema
+            deposito.responsabile(nuovo_responsabile)
 
+
+#
         elif scelta == "2":
             while True:
                 try:
@@ -30,7 +32,7 @@ def main():
                     break
                 except Exception as e:
                     print(e)
-
+#
         elif scelta == "3":
             tipo = input("Tipo di strumento: ")
             marca = input("Marca: ")
@@ -42,12 +44,12 @@ def main():
                 continue
             strumento = deposito.aggiungi_strumento(tipo, marca, anno_acquisto, valore)
             print(f"Strumento aggiunto: {strumento}")
-
+#
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
             for s in strumenti_ordinati:
                 print(f'- {s}')
-
+#
         elif scelta == "5":
             id_strumento = input("ID strumento: ")
             cognome_allievo = input("Cognome allievo: ")
@@ -57,7 +59,7 @@ def main():
                 print(f"Prestito andato a buon fine: {prestito}")
             except Exception as e:
                 print(e)
-
+#
         elif scelta == "6":
             id_prestito = input("ID prestito da terminare: ")
             try:
@@ -65,12 +67,13 @@ def main():
                 print(f"Prestito {id_prestito} terminato con successo.")
             except Exception as e:
                 print(e)
-
+#
         elif scelta == "7":
             print("Uscita dal programma...")
             break
         else:
             print("Opzione non valida!")
+
 
 if __name__ == "__main__":
     main()

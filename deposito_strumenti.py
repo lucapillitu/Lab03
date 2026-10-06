@@ -5,8 +5,31 @@ from prestito import Prestito
 
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
-        """Inizializza gli attributi e le strutture dati"""
-        # TODO
+        self.__nome = nome
+        self.__responsabile = responsabile
+
+### metodi get e set :
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, valore):
+        if not valore.strip():
+            raise ValueError("Nome deposito non valido")
+        self.__nome = valore.strip()
+
+    @property
+    def responsabile(self):
+        return self.__responsabile
+
+    @responsabile.setter
+    def responsabile(self, valore):
+        if not valore.strip():
+            raise ValueError("Nome responsabile non valido")
+        self.__responsabile = valore.strip()
+###
+
 
     def carica_file_strumenti(self, file_path):
         """Carica gli strumenti dal file"""
