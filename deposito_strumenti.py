@@ -1,3 +1,6 @@
+from operator import attrgetter
+
+
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
         """Inizializza gli attributi e le strutture dati"""
