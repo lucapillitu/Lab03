@@ -1,4 +1,6 @@
 from operator import attrgetter
+from strumento import Strumento
+from prestito import Prestito
 
 
 class DepositoStrumenti:
