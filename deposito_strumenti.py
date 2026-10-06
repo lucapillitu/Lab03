@@ -14,10 +14,19 @@ class DepositoStrumenti:
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
+        #deve prima rovare l'ultimo codice inserito,--> max(int(s.codice[1:]) for s in self.strumenti)
+        '''nuovo_num = max((int(s.codice[1:]) for s in self.strumenti), default=0) + 1
+            nuovo_codice = f"S{nuovo_num}"
+            oppure per evitare problemi di higher or lower : return sorted(self.strumenti, key=lambda s: s.marca.lower())
+            
+        '''
         # TODO
 
     def strumenti_ordinati_per_marca(self):
-        """Ordina gli strumenti per marca in ordine alfabetico"""
+        """Ordina gli strumenti per marca in ordine alfabetico : from operator import attrgetter
+
+def strumenti_ordinati_per_marca(self):
+    return sorted(self.strumenti, key=attrgetter("marca"))"""
         # TODO
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
