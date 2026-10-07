@@ -66,12 +66,10 @@ class DepositoStrumenti:
 
 
     def strumenti_ordinati_per_marca(self):
-        """Ordina gli strumenti per marca in ordine alfabetico : from operator import attrgetter
-#            oppure per evitare problemi di higher or lower : return sorted(self.strumenti, key=lambda s: s.marca.lower())
 
-def strumenti_ordinati_per_marca(self):
-    return sorted(self.strumenti, key=attrgetter("marca"))"""
-        # TODO
+        return sorted(self.strumenti, key=attrgetter("marca"))
+
+
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""

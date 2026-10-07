@@ -35,7 +35,7 @@ class Strumento:
     def marca(self, valore):
         if not valore.strip():
             raise ValueError("Marca non valida")
-        self.__marca = valore.strip()
+        self.__marca = valore.strip().title()
 
     @property
     def anno(self):

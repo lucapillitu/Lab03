@@ -50,7 +50,6 @@ def main():
             print(f"Strumento aggiunto: {strumento.__str__()}")
 
 
-
 #
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
