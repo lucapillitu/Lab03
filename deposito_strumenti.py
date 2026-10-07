@@ -7,6 +7,9 @@ class DepositoStrumenti:
     def __init__(self, nome, responsabile):
         self.__nome = nome
         self.__responsabile = responsabile
+        self.__strumenti = []
+        self.__prestiti=[]
+
 
 ### metodi get e set :
     @property
@@ -28,12 +31,34 @@ class DepositoStrumenti:
         if not valore.strip():
             raise ValueError("Nome responsabile non valido")
         self.__responsabile = valore.strip()
+
+    @property
+    def strumenti(self):
+        return list(self.__strumenti)
+
+    @property
+    def prestiti(self):
+        return list(self.__prestiti)
 ###
 
 
     def carica_file_strumenti(self, file_path):
-        """Carica gli strumenti dal file"""
-        # TODO
+        try:
+            with open(file_path, "r") as f:
+                for l in f.readlines():
+                    line=l.strip()
+                    if not line:
+                        continue
+                    campi=line.split(",")
+                    if any(s.codice == campi[0] for s in self.__strumenti):
+                        continue
+
+                    self.__strumenti.append((campi[0], campi[1], campi[2], int(campi[3]), float(campi[4])))
+
+
+        except FileNotFoundError:
+            return
+
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
