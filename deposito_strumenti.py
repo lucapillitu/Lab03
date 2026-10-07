@@ -56,20 +56,18 @@ class DepositoStrumenti:
                     self.__strumenti.append(Strumento(campi[0], campi[1], campi[2], int(campi[3]), float(campi[4])))
 
 
-
-
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
-        """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
-        #deve prima rovare l'ultimo codice inserito,--> max(int(s.codice[1:]) for s in self.strumenti)
-        '''nuovo_num = max((int(s.codice[1:]) for s in self.strumenti), default=0) + 1
-            nuovo_codice = f"S{nuovo_num}"
-            oppure per evitare problemi di higher or lower : return sorted(self.strumenti, key=lambda s: s.marca.lower())
-            
-        '''
-        # TODO
+        nuovo_num = max((int(s.codice[1:]) for s in self.__strumenti), default=0) + 1
+        s = Strumento(f"S{nuovo_num}", tipo, marca, anno_acquisto, valore)
+        self.__strumenti.append(s)
+
+        return s
+
+
 
     def strumenti_ordinati_per_marca(self):
         """Ordina gli strumenti per marca in ordine alfabetico : from operator import attrgetter
+#            oppure per evitare problemi di higher or lower : return sorted(self.strumenti, key=lambda s: s.marca.lower())
 
 def strumenti_ordinati_per_marca(self):
     return sorted(self.strumenti, key=attrgetter("marca"))"""
