@@ -21,17 +21,21 @@ def main():
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
             deposito.responsabile(nuovo_responsabile)
-
-
 #
         elif scelta == "2":
             while True:
-                try:
-                    file_path = input("Inserisci il path del file da caricare: ").strip()
-                    deposito.carica_file_strumenti(file_path)
+                file_path = input("Path del file (invio per annullare): ").strip()
+                if not file_path:
                     break
-                except Exception as e:
-                    print(e)
+                try:
+                    deposito.carica_file_strumenti(file_path)
+                    print("Strumenti caricati.")
+                    break
+                except FileNotFoundError:
+                    print("File non trovato, riprova.")
+                except ValueError as e:
+                    print(f"Dati non validi nel file: {e}")
+
 #
         elif scelta == "3":
             tipo = input("Tipo di strumento: ")

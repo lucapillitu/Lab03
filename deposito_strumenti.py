@@ -43,8 +43,8 @@ class DepositoStrumenti:
 
 
     def carica_file_strumenti(self, file_path):
-        try:
-            with open(file_path, "r") as f:
+
+        with open(file_path, "r") as f:
                 for l in f.readlines():
                     line=l.strip()
                     if not line:
@@ -53,11 +53,9 @@ class DepositoStrumenti:
                     if any(s.codice == campi[0] for s in self.__strumenti):
                         continue
 
-                    self.__strumenti.append((campi[0], campi[1], campi[2], int(campi[3]), float(campi[4])))
+                    self.__strumenti.append(Strumento(campi[0], campi[1], campi[2], int(campi[3]), float(campi[4])))
 
 
-        except FileNotFoundError:
-            return
 
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
