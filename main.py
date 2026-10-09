@@ -17,11 +17,11 @@ def main():
 
     while True:
         scelta = menu()
-#
+#done
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
             deposito.responsabile(nuovo_responsabile)
-#
+#done
         elif scelta == "2":
             while True:
                 file_path = input("Path del file (invio per annullare): ").strip()
@@ -36,7 +36,7 @@ def main():
                 except ValueError as e:
                     print(f"Dati non validi nel file: {e}")
 
-#
+#done
         elif scelta == "3":
             tipo = input("Tipo di strumento: ")
             marca = input("Marca: ")
@@ -50,7 +50,7 @@ def main():
             print(f"Strumento aggiunto: {strumento.__str__()}")
 
 
-#
+#done
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
             for s in strumenti_ordinati:

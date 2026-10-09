@@ -9,6 +9,7 @@ class DepositoStrumenti:
         self.__responsabile = responsabile
         self.__strumenti = []
         self.__prestiti=[]
+        self.__pretito = 1
 
 
 ### metodi get e set :
@@ -58,7 +59,9 @@ class DepositoStrumenti:
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         nuovo_num = max((int(s.codice[1:]) for s in self.__strumenti), default=0) + 1
+
         s = Strumento(f"S{nuovo_num}", tipo, marca, anno_acquisto, valore)
+
         self.__strumenti.append(s)
 
         return s
@@ -72,9 +75,18 @@ class DepositoStrumenti:
 
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
-        """Crea un nuovo prestito"""
-        # TODO
+
+        if not any(s.codice == id_strumento for s in self.__strumenti):
+            raise Exception(f"Strumento {id_strumento} non presente nel deposito")
+
+        if any(p.id_strumento == id_strumento for p in self.__prestiti):
+            raise Exception(f"Strumento {id_strumento} già in prestito")
+
+        prestito = Prestito(f"P{self.__contatore_prestiti}", data, id_strumento, cognome_allievo)
+        self.__contatore_prestiti += 1
+        return prestito
+
+
 
     def termina_prestito(self, id_prestito):
         """Termina un prestito in atto"""
-        # TODO
