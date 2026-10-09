@@ -89,4 +89,9 @@ class DepositoStrumenti:
 
 
     def termina_prestito(self, id_prestito):
-        """Termina un prestito in atto"""
+
+        for p in self.__prestiti:
+            if p.codice == id_prestito:
+                self.__prestiti.remove(p)
+                return
+        raise Exception(f"Non è stato trovato nessun prestito : {id_prestito}")

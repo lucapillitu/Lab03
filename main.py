@@ -62,10 +62,10 @@ def main():
             data = datetime.now().date()
             try:
                 prestito = deposito.nuovo_prestito(data, id_strumento, cognome_allievo)
-                print(f"Prestito andato a buon fine: {prestito}")
+                print(f"Prestito andato a buon fine: {prestito.__repr__()}")
             except Exception as e:
                 print(e)
-#
+#done
         elif scelta == "6":
             id_prestito = input("ID prestito da terminare: ")
             try:
@@ -73,7 +73,7 @@ def main():
                 print(f"Prestito {id_prestito} terminato con successo.")
             except Exception as e:
                 print(e)
-#
+#done
         elif scelta == "7":
             print("Uscita dal programma...")
             break
