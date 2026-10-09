@@ -66,7 +66,7 @@ def main():
 
 #5
         elif scelta == "5":
-            id_strumento = input("ID strumento: ")
+            id_strumento = input("ID strumento: ").upper()
             cognome_allievo = input("Cognome allievo: ")
             data = datetime.now().date()
             try:
@@ -77,7 +77,7 @@ def main():
 
 #6
         elif scelta == "6":
-            id_prestito = input("ID prestito da terminare: ")
+            id_prestito = input("ID prestito da terminare: ").upper()
             try:
                 deposito.termina_prestito(id_prestito)
                 print(f"Prestito {id_prestito} terminato con successo.")
