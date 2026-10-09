@@ -1,6 +1,8 @@
 from deposito_strumenti import DepositoStrumenti
 from datetime import datetime
 
+
+
 def menu():
     print("\n--- MENU DEPOSITO STRUMENTI ---")
     print("1. Modifica nome del responsabile del deposito")
@@ -17,14 +19,16 @@ def main():
 
     while True:
         scelta = menu()
-#done
+
+#1
         if scelta == "1":
             try:
                 deposito.responsabile = input("Inserisci il nuovo responsabile: ")
                 print(f"Responsabile aggiornato: {deposito.responsabile}")
             except ValueError as e:
                 print(e)
-#done
+
+#2
         elif scelta == "2":
             while True:
                 file_path = input("Path del file (invio per annullare): ").strip()
@@ -39,7 +43,7 @@ def main():
                 except ValueError as e:
                     print(f"Dati non validi nel file: {e}")
 
-#done
+#3
         elif scelta == "3":
             tipo = input("Tipo di strumento: ")
             marca = input("Marca: ")
@@ -51,8 +55,7 @@ def main():
             except ValueError:
                 print("Errore: inserire valori numerici validi per anno e valore.")
 
-
-#done
+#4
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
             if strumenti_ordinati:
@@ -61,7 +64,7 @@ def main():
             else:
                 print("Magazzino vuoto")
 
-#done
+#5
         elif scelta == "5":
             id_strumento = input("ID strumento: ")
             cognome_allievo = input("Cognome allievo: ")
@@ -71,7 +74,8 @@ def main():
                 print(f"Prestito andato a buon fine: {prestito.__repr__()}")
             except Exception as e:
                 print(e)
-#done
+
+#6
         elif scelta == "6":
             id_prestito = input("ID prestito da terminare: ")
             try:
@@ -79,7 +83,8 @@ def main():
                 print(f"Prestito {id_prestito} terminato con successo.")
             except Exception as e:
                 print(e)
-#done
+
+#7
         elif scelta == "7":
             print("Uscita dal programma...")
             break

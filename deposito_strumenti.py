@@ -40,7 +40,6 @@ class DepositoStrumenti:
     @property
     def prestiti(self):
         return list(self.__prestiti)
-###
 
 
     def carica_file_strumenti(self, file_path):
@@ -55,6 +54,7 @@ class DepositoStrumenti:
                         continue
 
                     self.__strumenti.append(Strumento(campi[0], campi[1], campi[2], int(campi[3]), float(campi[4])))
+
 
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):

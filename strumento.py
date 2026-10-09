@@ -1,17 +1,19 @@
 class Strumento:
+
     def __init__(self, codice, tipo, marca, anno, valore):
         self.__codice = codice
-        # senza "__" → passano dai setter, quindi vengono controllati
         self.tipo = tipo
         self.marca = marca
         self.anno = anno
         self.valore = valore
+
 
     def __str__(self):
         return f"{self.__codice} - {self.__tipo} - {self.__marca} - {self.__anno} - {self.__valore:.2f} €"
 
     def __repr__(self):
         return f"Strumento:({self.__codice!r}, {self.__tipo!r}, {self.__marca!r}, {self.__anno}, {self.__valore})"
+
 
     @property
     def codice(self):          # sola lettura: nessun setter
