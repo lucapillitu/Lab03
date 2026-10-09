@@ -19,8 +19,11 @@ def main():
         scelta = menu()
 #done
         if scelta == "1":
-            nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
-            deposito.responsabile(nuovo_responsabile)
+            try:
+                deposito.responsabile = input("Inserisci il nuovo responsabile: ")
+                print(f"Responsabile aggiornato: {deposito.responsabile}")
+            except ValueError as e:
+                print(e)
 #done
         elif scelta == "2":
             while True:
@@ -43,19 +46,22 @@ def main():
             try:
                 anno_acquisto = int(input("Anno di acquisto: ").strip())
                 valore = float(input("Valore (euro): ").strip())
+                strumento = deposito.aggiungi_strumento(tipo, marca, anno_acquisto, valore)
+                print(f"Strumento aggiunto: {strumento.__str__()}")
             except ValueError:
                 print("Errore: inserire valori numerici validi per anno e valore.")
-                continue
-            strumento = deposito.aggiungi_strumento(tipo, marca, anno_acquisto, valore)
-            print(f"Strumento aggiunto: {strumento.__str__()}")
 
 
 #done
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
-            for s in strumenti_ordinati:
-                print(f'- {s}')
-#
+            if strumenti_ordinati:
+                for s in strumenti_ordinati:
+                    print(f'- {s}')
+            else:
+                print("Magazzino vuoto")
+
+#done
         elif scelta == "5":
             id_strumento = input("ID strumento: ")
             cognome_allievo = input("Cognome allievo: ")

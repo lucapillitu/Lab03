@@ -1,6 +1,6 @@
 class Prestito:
     def __init__(self, codice, data, id_strumento, cognome_allievo):
-        self.__codice = codice
+        self.__codice = codice.strip().upper()
         self.__data = data
         self.__id_strumento = id_strumento
         # senza "__" → passa dal setter, quindi viene controllato
