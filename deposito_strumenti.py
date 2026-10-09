@@ -5,11 +5,11 @@ from prestito import Prestito
 
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
-        self.__nome = nome
-        self.__responsabile = responsabile
+        self.nome = nome
+        self.responsabile = responsabile
         self.__strumenti = []
         self.__prestiti=[]
-        self.__pretito = 1
+        self.__contatore_prestiti = 1
 
 
 ### metodi get e set :
@@ -83,6 +83,7 @@ class DepositoStrumenti:
             raise Exception(f"Strumento {id_strumento} già in prestito")
 
         prestito = Prestito(f"P{self.__contatore_prestiti}", data, id_strumento, cognome_allievo)
+        self.__prestiti.append(prestito)
         self.__contatore_prestiti += 1
         return prestito
 
